@@ -3,7 +3,7 @@ from gensim.utils import simple_preprocess
 from gensim.models import Word2Vec
 import numpy as np
 from tqdm import tqdm
-
+###############################################################################
 corpus = pd.read_csv('C:/data/word2vec/term_9.csv')
 
 texts = corpus.text.values
