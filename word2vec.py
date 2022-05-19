@@ -7,6 +7,7 @@ sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
 			['yet', 'another', 'sentence'],
 			['one', 'more', 'sentence'],
 			['and', 'the', 'final', 'sentence']]
+#####################
 # train model
 model = Word2Vec(sentences, min_count=1)
 # summarize the loaded model
