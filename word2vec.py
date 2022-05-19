@@ -24,6 +24,8 @@ model.save(data_directory + '/model.bin')
 new_model = Word2Vec.load(data_directory + '/model.bin')
 print(new_model)
 
+#meow
+
 
 
 
