@@ -43,6 +43,8 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 result = pca.fit_transform(X)
 # create a scatter plot of the projection
+# import matplotlib
+# matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 plt.scatter(result[:, 0], result[:, 1])
 
