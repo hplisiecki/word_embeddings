@@ -27,7 +27,7 @@ print(new_model)
 #meow
 
 
-
+# ARTUR tu był!!
 
 
 
