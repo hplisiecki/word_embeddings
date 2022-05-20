@@ -6,6 +6,13 @@ from tqdm import tqdm
 ##################################################################################
 corpus = pd.read_csv('C:/data/word2vec/term_9.csv')
 
+
+
+
+
+
+##################################################################################
+a = 'abcdefghijklmnopqrstuvwxyz'
 texts = corpus.text.values
 
 # preprocess the text
