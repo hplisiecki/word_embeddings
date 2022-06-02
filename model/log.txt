@@ -1,0 +1,8 @@
+
+2022-06-02 14:35:42,768 : INFO : loading Word2Vec object from model\compass.model
+2022-06-02 14:35:42,919 : INFO : loading wv recursively from model\compass.model.wv.* with mmap=None
+2022-06-02 14:35:42,919 : INFO : setting ignored attribute vectors_norm to None
+2022-06-02 14:35:42,919 : INFO : loading vocabulary recursively from model\compass.model.vocabulary.* with mmap=None
+2022-06-02 14:35:42,919 : INFO : loading trainables recursively from model\compass.model.trainables.* with mmap=None
+2022-06-02 14:35:42,920 : INFO : setting ignored attribute cum_table to None
+2022-06-02 14:35:42,920 : INFO : loaded model\compass.model
