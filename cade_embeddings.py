@@ -7,11 +7,12 @@ from gensim.utils import simple_preprocess
 
 aligner = CADE(size=300)
 
-corpus = pd.read_csv('C:/data/word2vec/term_9.csv')
+corpus = pd.read_csv('D:\\data\\workshops\\9_term.csv')
+
 texts = corpus.text.values
 texts = [simple_preprocess(text) for text in texts]
 
-aligner.train_compass(texts, train_vocab = True, overwrite=False, save = True) # keep an eye on the overwrite behaviour
+aligner.train_compass(texts, overwrite=False, save = True) # keep an eye on the overwrite behaviour
 # load compass
 
 for k in tqdm(set(corpus.klub.unique())):
