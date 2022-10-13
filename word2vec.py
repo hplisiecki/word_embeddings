@@ -7,8 +7,9 @@ sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
 			['yet', 'another', 'sentence'],
 			['one', 'more', 'sentence'],
 			['and', 'the', 'final', 'sentence']]
+#####################
 # train model
-model = Word2Vec(sentences, min_count=1, vector_size=200)
+model = Word2Vec(sentences, min_count=1)
 # summarize the loaded model
 print(model)
 # summarize vocabulary
@@ -23,6 +24,12 @@ model.save(data_directory + '/model.bin')
 new_model = Word2Vec.load(data_directory + '/model.bin')
 print(new_model)
 
+#meow
+
+
+
+
+
 
 
 # plotting embeddings
@@ -34,8 +41,8 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 result = pca.fit_transform(X)
 # create a scatter plot of the projection
-import matplotlib
-matplotlib.use('TkAgg')
+# import matplotlib
+# matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 plt.scatter(result[:, 0], result[:, 1])
 

@@ -3,15 +3,23 @@ from gensim.utils import simple_preprocess
 from gensim.models import Word2Vec
 import numpy as np
 from tqdm import tqdm
-
+##################################################################################
 corpus = pd.read_csv('C:/data/word2vec/term_9.csv')
 
+
+
+
+
+
+##################################################################################
+a = 'abcdefghijklmnopqrstuvwxyz'
 texts = corpus.text.values
 
 # preprocess the text
 texts = [simple_preprocess(text) for text in texts]
 
 model = Word2Vec(texts, min_count=1, vector_size=300, workers=4)
+
 word = 'aborcja'
 print(model.wv.most_similar(word))
 
@@ -42,8 +50,8 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 result = pca.fit_transform(X)
 # create a scatter plot of the projection
-import matplotlib
-matplotlib.use('TkAgg')
+# import matplotlib
+# matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 plt.scatter(result[:, 0], result[:, 1])
 

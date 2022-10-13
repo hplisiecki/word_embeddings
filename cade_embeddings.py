@@ -13,14 +13,17 @@ texts = corpus.text.values
 texts = [simple_preprocess(text) for text in texts]
 
 aligner.train_compass(texts, overwrite=False, save = True) # keep an eye on the overwrite behaviour
-# load compass
 
 for k in tqdm(set(corpus.klub.unique())):
    temp = corpus[corpus.klub == k]
    texts = temp.text.values
    if len(texts) > 1:
       texts = [simple_preprocess(text) for text in texts]
-      slice = aligner.train_slice(texts, f'club_{k}', train_vocab=False, save=True)
+      # import pdb;
+      #
+      # pdb.set_trace()
+
+      slice = aligner.train_slice(texts[:10], f'club_{k}', train_vocab=True, save=True)
 
 pis = Word2Vec.load("model/club_PiS.model")
 ko =  Word2Vec.load("model/club_KO.model")
