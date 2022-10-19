@@ -1,4 +1,5 @@
 from gensim.models import Word2Vec
+from gensim.utils import simple_preprocess
 
 data_directory = 'C:/data/word2vec'
 # define training data
@@ -7,9 +8,11 @@ sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
 			['yet', 'another', 'sentence'],
 			['one', 'more', 'sentence'],
 			['and', 'the', 'final', 'sentence']]
+
+
 #####################
 # train model
-model = Word2Vec(sentences, min_count=1)
+model = Word2Vec(sentences, min_count=1, vector_size=300, workers=4)
 # summarize the loaded model
 print(model)
 # summarize vocabulary

@@ -8,12 +8,11 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from gensim.models.doc2vec import Doc2Vec
-from special_embeddings.utils.labels_onuce import document_tags, person_tags, date_tags
+from special_embeddings.utils.labels import document_tags, person_tags, date_tags, party_tags
 from special_embeddings.utils.guided import custom_projection_2D # for guided
 from special_embeddings.utils.polarization import polarization_metric # done
 from special_embeddings.utils.interpret import Interpret # done
 from special_embeddings.utils.issues import issue_ownership
-from special_embeddings.validate import Validate
 from sklearn.metrics.pairwise import cosine_similarity
 from gensim import matutils
 
@@ -28,6 +27,7 @@ class Explore(object):
         self.reverse_dim1 = False; self.reverse_dim2 = False
         self.method = method
         self.culprits = culprits
+
         if self.culprits == 'document':
             self.fullnames, self.culprits, self.cols, self.mkers = document_tags(self.model)
             self.labels = [p.replace('DOC_TAG_', '') for p in self.culprits]
@@ -39,6 +39,10 @@ class Explore(object):
         elif self.culprits == 'date':
             self.fullnames, self.culprits, self.cols, self.mkers = date_tags(self.model)
             self.labels = [p.replace('DATE_TAG_', '') for p in self.culprits]
+
+        elif self.culprits == 'party':
+            self.fullnames, self.culprits, self.cols, self.mkers = party_tags(self.model)
+            self.labels = [p.replace('PARTY_TAG_', '') for p in self.culprits]
 
         self.P = len(self.culprits)
         self.components = dimensions
@@ -229,7 +233,7 @@ class Explore(object):
     def benchmarks(self, test='analogies'):
         Validate(self.model, self.method).benchmarks(test=test)
 
-save_path = 'special_embeddings/onuce/'
+save_path = 'special_embeddings/storage/'
 model = Doc2Vec.load(save_path + 'doc2vec_0.model')
 
 # compute cosine similarity
@@ -242,7 +246,7 @@ from sklearn.metrics.pairwise import euclidean_distances
 # model.wv.most_similar
 
 
-exploration = Explore(model, culprits='people')
+exploration = Explore(model, culprits='party')
 
 
 exploration.interpret()
